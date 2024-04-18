@@ -64,7 +64,7 @@ public class SecurityConfig {
                 .exceptionHandling((exceptionConfig) -> exceptionConfig.authenticationEntryPoint(unauthorizedEntryPoint).accessDeniedHandler(accessDeniedHandler))
                 .authorizeHttpRequests((authorizeRequest) ->
                         authorizeRequest
-                                .requestMatchers("/", "/join").permitAll()  // "/login"은 permitAll 필요없음
+                                .requestMatchers("/", "/join", "/test200").permitAll()  // "/login"은 permitAll 필요없음
                                 .requestMatchers("/user").authenticated()
                                 .requestMatchers("/admin/**").hasAnyRole("ADMIN")
                                 .requestMatchers("/api/v1/**").permitAll()
